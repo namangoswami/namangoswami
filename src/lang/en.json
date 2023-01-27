@@ -1,0 +1,169 @@
+{
+    "name": "Naman Goswami",
+    "age": 20,
+    "titles": [
+        "Developer",
+        "Thinker",
+        "Leader"
+    ],
+    "experience": [{
+            "time": "Current",
+            "company": "Touchcore Systems",
+            "role": "Full Stack Developer",
+            "location": "Remote",
+            "description": ["Working in the healthcare Sector", "Working on a platform that helps Organizations working in the healthcare sector", "Working on the development of a Form Rendering Engine", "Worked with Angular, .NET, MsSQL, among many other tech stacks"]
+        },
+        {
+            "time": "2021-2022",
+            "company": "Anyvair Ventures",
+            "role": "Frontend Developer",
+            "location": "Remote, New Delhi",
+            "description": ["Developed more than 3 standalone web platforms", "Contributed to the development of the mobile application in React-native", "Co-ordinated with Administration and Design team and lead the frontend development", "Worked in HTML, JS, CSS, Bootstrap, Jquery, React, React-native"]
+        },
+        {
+            "time": "2020-2021",
+            "company": "Balanced Bites",
+            "role": "Frontend Developer",
+            "location": "New Delhi",
+            "description": ["Worked in a team of 3", "Developed the frontend for 2 websites", "Worked in React, HTML, CSS, JQuery, Bootstrap"]
+        }
+    ],
+    "projects": [{
+            "name": "Library Management App",
+            "description": [
+                "Tech Stack: Angular, .NET Core, MsSQL",
+                "Features: Authentication, Authorization, CRUD Operations, Search, Sorting, Pagination, Role Based Authorization"
+            ],
+            "github": "",
+            "website": "https://library-frontend-18f07.web.app/",
+            "screenshots": [
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160126.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160133.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160229.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160245.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160258.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160153.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160201.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160312.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160219.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336",
+                "https://ik.imagekit.io/climatesolutions/Projects/Library/Screenshot_2023-01-27_160236.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815767336"
+            ],
+            "warning": "Backend Server currently not live"
+        },
+        {
+            "name": "Social Media App",
+            "description": [
+                "Tech Stack: React, Node, Express, MongoDB",
+                "Redux for State Management",
+                "Features: Authentication, Authorization, CRUD Operations, Search, Sorting, Pagination, Role Based Authorization"
+            ],
+            "github": "",
+            "website": "",
+            "screenshots": [
+                "https://ik.imagekit.io/climatesolutions/Projects/Graffiti/Screenshot_20230127_104859.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674796836095",
+                "https://ik.imagekit.io/climatesolutions/Projects/Graffiti/Screenshot_20230127_104907.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674796836603"
+            ]
+        },
+        {
+            "name": "Custom Form Builder",
+            "description": [
+                "Tech Stack: Vanilla JS",
+                "Features: Drag and Drop, Custom Styling, Custom Validation, Custom Actions",
+                "Made with Vanilla JS, HTML, CSS",
+                "DOM Manipulation"
+            ],
+            "github": "",
+            "website": "",
+            "screenshots": [
+                "https://ik.imagekit.io/climatesolutions/Projects/FormBuilder/Screenshot_2023-01-27_154939.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815732467",
+                "https://ik.imagekit.io/climatesolutions/Projects/FormBuilder/Screenshot_2023-01-27_154925.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815732467",
+                "https://ik.imagekit.io/climatesolutions/Projects/FormBuilder/Screenshot_2023-01-27_155000.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815732467",
+                "https://ik.imagekit.io/climatesolutions/Projects/FormBuilder/Screenshot_2023-01-27_155036.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815732467",
+                "https://ik.imagekit.io/climatesolutions/Projects/FormBuilder/Screenshot_2023-01-27_155044.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815732467"
+            ]
+        },
+        {
+            "name": "This ",
+            "description": [
+                "This website",
+                "Tech Stack: React, HTML, CSS",
+                "Highlights my creativity, design skills, and technical skills"
+            ],
+            "github": "",
+            "website": "",
+            "screenshots": [
+                "https://ik.imagekit.io/climatesolutions/Projects/Portfolio/Screenshot_2023-01-27_154745.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815713480",
+                "https://ik.imagekit.io/climatesolutions/Projects/Portfolio/Screenshot_2023-01-27_154815.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815713480",
+                "https://ik.imagekit.io/climatesolutions/Projects/Portfolio/Screenshot_2023-01-27_154801.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815713480",
+                "https://ik.imagekit.io/climatesolutions/Projects/Portfolio/Screenshot_2023-01-27_154828.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674815713480"
+
+            ]
+        }
+    ],
+    "contact": [{
+            "name": "Work",
+            "value": "namangoswamiwork@gmail.com",
+            "link": "mailto:namangoswamiwork@gmail.com",
+            "icon": "fas fa-envelope"
+        },
+        {
+            "name": "Business",
+            "value": "namangoswamibusiness@gmail.com",
+            "link": "mailto:namangoswamibusiness@gmail.com",
+            "icon": "fas fa-envelope"
+        }, {
+            "name": "Phone",
+            "value": "+91 9315156113",
+            "link": "tel:9315156113",
+            "icon": "fas fa-phone"
+        },
+        {
+            "name": "LinkedIn",
+            "value": "https://www.linkedin.com/in/namangoswami",
+            "link": "https://www.linkedin.com/in/namangoswami",
+            "svg": "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        },
+        {
+            "name": "GitHub",
+            "value": "namangoswami",
+            "link": "https://github.com/namangoswami",
+            "svg": "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+        }
+    ],
+    "skills": {
+        "Languages": [
+            "JavaScript",
+            "TypeScript",
+            "C#",
+            "Python",
+            "Java",
+            "HTML",
+            "CSS",
+            "C++",
+            "SQL"
+        ],
+        "Frameworks": [
+            "React",
+            "Angular",
+            "Node",
+            "Express",
+            "ASP.NET Core",
+            "Bootstrap",
+            "Material UI",
+            "Tailwind CSS"
+        ],
+        "Databases": [
+            "MongoDB",
+            "MsSQL",
+            "MySQL",
+            "PostgreSQL"
+        ],
+        "Tools": [
+            "Git",
+            "GitHub",
+            "GitLab",
+            "Figma",
+            "Adobe XD"
+        ]
+    }
+}
