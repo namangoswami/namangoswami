@@ -1,14 +1,33 @@
 import React from 'react'
 import { useEffect } from 'react';
 import lang from '../../lang'
+import emailjs from '@emailjs/browser'
 
 
 export default function Section4({isVisible, setShowTip}) {
     
   function contactSubmit(e) {
     e.preventDefault();
-    document.getElementById("contact-form").reset();
-
+    emailjs.sendForm('service_ilzfy5x', 'template_irv489m', formEl.current, 'qma4BiF5deVizaerE')
+      .then((result) => {
+          console.log(result.text);
+          setForm({firstName: "", lastName: "", email: "", phone: "", message: ""}, setSubmitted(true));
+      }, (error) => {
+          console.log(error.text);
+      });
+  }
+  const formEl=React.useRef(null);
+  const [submitted, setSubmitted] = React.useState(false);
+  const [form, setForm] = React.useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+  
+  const handleChange=(e)=>{
+    setForm({...form, [e.target.name]: e.target.value});
   }
 
   const [isPristine, setIsPristine] = React.useState(true);
@@ -44,20 +63,23 @@ export default function Section4({isVisible, setShowTip}) {
                         ))
                     }
             </div>
-            <div className="right-side">
-              <form className="contact-form" id="contact-form" onSubmit={contactSubmit} onMouseOver={()=>setIsPristine(false)}>
+            <div className={submitted?"right-side submitted":"right-side"}>
+              <form className="contact-form" id="contact-form" onSubmit={contactSubmit} onMouseOver={()=>setIsPristine(false)} ref={formEl} >
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <input type="text" className="half-width" placeholder="First Name" />
-                  <input type="text" className="half-width" placeholder="Last Name" />
+                  <input type="text" name="firstName" className="half-width" placeholder="First Name" value={form.firstName} onChange={handleChange} />
+                  <input type="text" name='lastName' className="half-width" placeholder="Last Name" value={form.lastName} onChange={handleChange}/>
                 </div>
-                <input type="text" placeholder="Email" />
-                <input type="text" placeholder="Phone" />
-                <textarea type="text" placeholder="What do you want to talk about?"></textarea>
+                <input type="text" name='email' placeholder="Email" value={form.email} onChange={handleChange}/>
+                <input type="text" name='phone' placeholder="Phone" value={form.phone} onChange={handleChange}/>
+                <textarea type="text" name='message' placeholder="What do you want to talk about?"onChange={handleChange} value={form.message}></textarea>
                 <div className="buttons">
                   <button type="reset" className="reset">Reset</button>
                   <button type="submit" className="submit">Submit</button>
                 </div>
               </form>
+              <div className="thank-you-message">
+                Thank You for reaching out! I will get back to you as soon as possible.
+              </div>
             </div>
           </div>
           

@@ -24,7 +24,8 @@ function App() {
     if(deviceWidth<=768)
     return;
     var circles = circlesParent.current?.children;
-
+    if(circles==undefined)
+    return;
     for (var i = 0; i < circles.length; i++) {
       var x = circles[i].style.left;
       var y = circles[i].style.top;

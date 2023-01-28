@@ -926,8 +926,29 @@ body {
     }
 }
 
+.right-side .thank-you-message {
+    display: none;
+}
 
-/* fix font size for media queries */
+.right-side.submitted form {
+    display: none;
+}
+
+.right-side.submitted .thank-you-message {
+    display: block;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    max-width: 300px;
+}
+
+.right-side.submitted {
+    border: 1px solid white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media (max-width: 768px) {
     .section-1 .name {
