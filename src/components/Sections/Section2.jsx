@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import lang from '../../lang'
 
-export default function Section2() {
+export default function Section2({isVisible, setShowTip}) {
     const skills=lang.skills;
     const [currentSkill, setCurrentSkill] = useState(skills['Languages']);
     const [currentCompany, setCurrentCompany] = useState(null);
@@ -11,6 +11,18 @@ export default function Section2() {
         else
             setCurrentCompany(value);
     }
+    const [isPristine, setIsPristine] = useState(true);
+    useEffect(()=>{
+        if(isVisible)
+        {  
+            if(isPristine)
+                setShowTip({show:true, tip:"Click"});
+            else
+                setShowTip({show:false, tip:"Click"});
+        }
+    }, [isVisible, isPristine])
+    
+   
     return (
     <section className="section section-2" id="section-2">
         <div>
@@ -18,7 +30,7 @@ export default function Section2() {
           <div className="section-title">Experience</div>
           <div className="experience-table">
             {lang.experience.map((experience, index) => (
-                <div className={currentCompany===index?'experience-parent selected':'experience-parent'} onClick={()=>setCurrent(index)}  >
+                <div className={currentCompany===index?'experience-parent selected':'experience-parent'} onClick={()=>{setCurrent(index);setIsPristine(false)}}  >
                 <div key={index} className="experience hoverable">
                     <div className="period">{experience.time}</div>
                     <div className="company">{experience.company}</div>

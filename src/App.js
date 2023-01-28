@@ -13,6 +13,10 @@ function App() {
     x: undefined,
     y: undefined
   });
+  const [docReady, setDocReady] = useState(false);
+  const circleMouse = useRef(null)
+  const circleBackdrop=useRef(null)
+  const circleInner=useRef(null)
   const circlesParent = useRef(null);
 
   function setCircles() {
@@ -38,6 +42,7 @@ function App() {
       () => {
         setInterval(
           () => setCircles(), 1000);
+          setDocReady(true);
       }, 2000
     )
     return () => {
@@ -50,6 +55,24 @@ function App() {
     document.body.style.setProperty('--x', (globalCords.x) + 'px');
     document.body.style.setProperty('--y', (globalCords.y) + 'px');
   }, [globalCords]);
+
+
+  useEffect(()=>{
+    if(globalCords.x==undefined||globalCords.y==undefined)
+    return;
+    var el = document.elementFromPoint(globalCords.x, globalCords.y);
+    if (el.classList.contains("mouse-center-inner"))
+        return;
+    if (el.children.length == 0 && el.tagName != "section"|| el.classList.contains('hoverable') || el.classList.contains("expand")||el.tagName=="A"||el.tagName=="BUTTON") {
+        circleMouse.current.classList.add("hovering");
+        circleInner.current.classList.add("hovering");
+        circleBackdrop.current.classList.add("hovering");
+    } else {
+        circleMouse.current.classList.remove("hovering");
+        circleInner.current.classList.remove("hovering");
+        circleBackdrop.current.classList.remove("hovering");
+    }
+  }, [globalCords])
 
   const setCords = (e) => {
     setGlobalCords({ x: e.clientX, y: e.clientY })
@@ -76,7 +99,6 @@ function App() {
   }
 
 
-  const circleMouse = useRef(null)
   const addMouse = () => {
     circleMouse.current.classList.add("mouse-down");
   }
@@ -91,10 +113,43 @@ function App() {
       document.removeEventListener("mouseup", removeMouse);
     }
   }, []);
+
+  const [showTip, setShowTip] = useState({show:false, tip:"Hover over me"});
+  const sectionAr=[useRef(null),useRef(null),useRef(null),useRef(null)]
+  const [visibleAr, setVisibleAr] = useState({"Section1":true,"Section2":false,"Section3":false,"Section4":false});
+  useEffect(() => {
+    // intersection observer for all sections
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('visible',entry.target.id)
+          setVisibleAr((prev)=>({...prev,[entry.target.id]:true}))
+        }
+        else
+        {
+          console.log('invisible',entry.target.id)
+          setVisibleAr((prev)=>({...prev,[entry.target.id]:false}))
+        }
+      });
+    }, options);
+    sectionAr.forEach((section) => {
+      if(section.current!=null)
+      observer.observe(section.current);
+    });
+    return () => {
+      observer.disconnect();
+    }
+  }, [sectionAr]);
+  
   return (
     <>
       <div className="backdrop">
-        <div className="mouse-center-backdrop" id="mouse-center-backdrop"></div>
+        <div className="mouse-center-backdrop" ref={circleBackdrop} id="mouse-center-backdrop"></div>
 
         <div className="circle-canvas" ref={circlesParent} >
           <div className="circle" style={{ backgroundColor: 'blanchedalmond' }}></div>
@@ -123,17 +178,17 @@ function App() {
             Contact
           </a>
         </div>
-        <div className="section-wrapper">
-        <Section1></Section1>
+        <div className="section-wrapper" ref={sectionAr[0]} id="Section1" >
+        <Section1 docReady={docReady} isVisible={visibleAr["Section1"]}  setShowTip={setShowTip} ></Section1>
         </div>
-        <div className="section-wrapper">
-        <Section2></Section2>
+        <div className="section-wrapper" ref={sectionAr[1]} id="Section2" >
+        <Section2 isVisible={visibleAr["Section2"]}  setShowTip={setShowTip} ></Section2>
         </div>
-        <div className="section-wrapper">
-        <Section3></Section3>
+        <div className="section-wrapper" ref={sectionAr[2]} id="Section3" >
+        <Section3 isVisible={visibleAr["Section3"]}  setShowTip={setShowTip} ></Section3>
         </div>
-        <div className="section-wrapper">
-        <Section4></Section4>
+        <div className="section-wrapper" ref={sectionAr[3]} id="Section4" >
+        <Section4 isVisible={visibleAr["Section4"]}  setShowTip={setShowTip} ></Section4>
         </div>
         <div className="footer">
             <div className="footer-text">
@@ -141,7 +196,8 @@ function App() {
             </div>
           </div>
         <div className="mouse-center" ref={circleMouse} id="mouse-center"></div>
-        <div className="mouse-center-inner" id="mouse-center-inner"></div>
+        <div className="mouse-center-inner" ref={circleInner} id="mouse-center-inner"></div>
+        <div className={showTip.show?'mouse-tip show':'mouse-tip'}>{"("+showTip.tip+")"}</div>
       </div>
 
       <div className="mouse-outer"></div>

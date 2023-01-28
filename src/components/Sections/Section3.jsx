@@ -3,11 +3,11 @@ import { useState, useEffect} from 'react'
 import lang from '../../lang'
 import ScreenshotGallery from '../ScreenshotGallery/ScreenshotGallery';
 
-export default function Section3() {
+export default function Section3({isVisible, setShowTip}) {
 const [current, setCurrentValue]=React.useState(-1);
 
 const [showSs, setShowSs]=React.useState(false);
-
+const [isPristine, setIsPristine] = React.useState(true);
       
 
 const setNull=()=>{
@@ -19,6 +19,21 @@ const setValue=(value)=>{
         return;
     setCurrentValue(value);
 };
+
+useEffect(() => {
+    if (isVisible) {
+      if(current==-1&&isPristine)
+        setShowTip({show:true, tip:"Click on a project to see more"});
+      else
+        setShowTip({show:false, tip:"Click on a project to see more"});
+    }
+  }, [isVisible, current]);
+
+  useEffect(() => {
+    if(current!==-1&&isPristine)
+    setIsPristine(false);
+  }, [current]);
+
   return (
     <section className="section section-3" id="section-3">
           {current===-1&&<div className="title">Projects</div>}
