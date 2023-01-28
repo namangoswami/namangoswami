@@ -13,6 +13,7 @@ function App() {
     x: undefined,
     y: undefined
   });
+  const deviceWidth=  window.innerWidth;
   const [docReady, setDocReady] = useState(false);
   const circleMouse = useRef(null)
   const circleBackdrop=useRef(null)
@@ -20,6 +21,8 @@ function App() {
   const circlesParent = useRef(null);
 
   function setCircles() {
+    if(deviceWidth<=768)
+    return;
     var circles = circlesParent.current?.children;
 
     for (var i = 0; i < circles.length; i++) {
