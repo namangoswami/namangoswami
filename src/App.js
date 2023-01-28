@@ -42,9 +42,11 @@ function App() {
       () => {
         setInterval(
           () => setCircles(), 1000);
+        }, 2000
+        )
+        setTimeout(()=>{
           setDocReady(true);
-      }, 2000
-    )
+        }, 4500)
     return () => {
       clearInterval(setCircles);
     }
@@ -61,9 +63,9 @@ function App() {
     if(globalCords.x==undefined||globalCords.y==undefined)
     return;
     var el = document.elementFromPoint(globalCords.x, globalCords.y);
-    if (el.classList.contains("mouse-center-inner"))
+    if (el.classList.contains("mouse-center-inner")||el.classList.contains("message-placeholder"))
         return;
-    if (el.children.length == 0 && el.tagName != "section"|| el.classList.contains('hoverable') || el.classList.contains("expand")||el.tagName=="A"||el.tagName=="BUTTON") {
+    if (el.children.length == 0 && el.tagName != "section"&&el.tagName!="img"|| el.classList.contains('hoverable') || el.classList.contains("expand")||el.tagName=="A"||el.tagName=="BUTTON") {
         circleMouse.current.classList.add("hovering");
         circleInner.current.classList.add("hovering");
         circleBackdrop.current.classList.add("hovering");
@@ -79,6 +81,7 @@ function App() {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     window.onscroll = setProgress;
     document.addEventListener("mousemove", setCords);
     return () => {
@@ -127,12 +130,10 @@ function App() {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          console.log('visible',entry.target.id)
           setVisibleAr((prev)=>({...prev,[entry.target.id]:true}))
         }
         else
         {
-          console.log('invisible',entry.target.id)
           setVisibleAr((prev)=>({...prev,[entry.target.id]:false}))
         }
       });

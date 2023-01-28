@@ -309,7 +309,7 @@ body {
         top: calc(50%);
         left: calc(100% - 25vw - 12px);
         width: 40vw;
-        height: 60vh;
+        height: auto;
     }
 }
 
@@ -394,10 +394,20 @@ body {
 }
 
 .section-1 {
-    justify-content: end;
-    flex-direction: column;
+    flex-direction: row;
     padding-bottom: 200px;
+}
+
+.section-1 .name-container {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
+    justify-content: end;
+}
+
+.message-placeholder {
+    flex: 1;
+    opacity: 0;
 }
 
 .section-1 .name {
@@ -419,6 +429,34 @@ body {
 
 .section-1 .titles .title {
     position: relative;
+}
+
+@media (max-width:1400px) {
+    .section-1 {
+        justify-content: space-between;
+    }
+    .section-1 .name {
+        font-size: 70px;
+        font-weight: 700;
+    }
+    .section-1 .age {
+        font-size: 35px;
+        font-weight: 900;
+    }
+    .section-1 .titles {
+        display: flex;
+        gap: 1em;
+        font-size: 30px;
+        justify-content: baseline;
+    }
+    .section-1 .titles .title {
+        position: relative;
+    }
+    .message.message-fixed {
+        max-width: 700px;
+        max-height: 80vh;
+        overflow: scroll;
+    }
 }
 
 .section-1 .titles .title::after {

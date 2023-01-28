@@ -57,6 +57,9 @@ export default function Section1({docReady, setShowTip, isVisible}) {
             </div>
            <img src={lang.profile} />
           </div>
+          {
+            !messagePristine&&<div className='message-placeholder'>Message placeholder</div>
+          }
         </section>
     )
 }
