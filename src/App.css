@@ -53,21 +53,21 @@ body {
     transform: translate(-50%, -50%);
     z-index: 2;
     transition: 1s;
+    filter: blur(80px);
     animation: initialAnimationBackdrop 9s ease-in-out;
 }
 
 .backdrop .circle {
     content: '';
-    height: 300px;
+    height: 350px;
     top: 50%;
     left: 50%;
-    width: 300px;
+    width: 350px;
     position: absolute;
     border-radius: 50%;
-    transition: 3s;
+    transition: 4s;
     transform-origin: center;
     z-index: 1;
-    filter: blur(100px);
     transform: translate(-50%, -50%);
     animation: initialAnimationCircles 6s ease-in-out;
 }
@@ -346,6 +346,10 @@ body {
     animation-fill-mode: forwards;
 }
 
+.mouse-center-inner.hovering.mouse-down {
+    transform: scale(10);
+}
+
 @keyframes mouseClick {
     0% {
         width: 43px;
@@ -510,8 +514,8 @@ body {
 .section-2 .experience-table .experience-parent {
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 12px 24px;
+    width: 100%;
     padding-right: 14px;
     border: 1px solid white;
     align-items: center;
@@ -729,7 +733,7 @@ body {
     gap: 1em;
 }
 
-.project.selected {
+.project.selected:has(iframe) {
     cursor: default !important;
 }
 

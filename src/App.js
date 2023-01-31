@@ -45,7 +45,7 @@ function App() {
     setTimeout(
       () => {
         setInterval(
-          () => setCircles(), 1000);
+          () => setCircles(), 3000);
         }, 2000
         )
         setTimeout(()=>{
@@ -108,9 +108,11 @@ function App() {
 
   const addMouse = () => {
     circleMouse.current.classList.add("mouse-down");
+    circleInner.current.classList.add("mouse-down");
   }
   const removeMouse = () => {
     circleMouse.current.classList.remove("mouse-down");
+    circleInner.current.classList.remove("mouse-down");
   }
   useEffect(() => {
     document.addEventListener("mousedown", addMouse);
